@@ -5,5 +5,9 @@ url = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=9ae7a2ef77
 
 request = requests.get(url)
 content = request.json()
-print(content)
-print(type(content))
+articles = content['articles']
+print(type(articles))
+body = ""
+for article in articles:
+    body = body + article['title'] + "\n" + article['description'] + 2*"\n"
+    print(body)
